@@ -1,0 +1,106 @@
+[
+    {
+        "id":1,
+        "name":"Story book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":2,
+        "name":"Comedy book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":20,
+        "category":"Paid",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":3,
+        "name":"Logic book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":4,
+        "name":"Sport book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":5,
+        "name":"Story book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":6,
+        "name":"Story book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":7,
+        "name":"Story book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":8,
+        "name":"Comedy book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":20,
+        "category":"Paid",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":10,
+        "name":"Logic book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":12,
+        "name":"Sport book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":13,
+        "name":"Story book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":14,
+        "name":"Story book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    },
+    {
+        "id":15,
+        "name":"Story book",
+        "title":"lorem, ipusm dolor sit amet consectetur adipising selist",
+        "price":0,
+        "category":"Free",
+        "image":"https://pluspng.com/img-png/book-png-book-stack-png-image-25686-1024.png"
+    }
+]
