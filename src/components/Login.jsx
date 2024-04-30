@@ -6,11 +6,7 @@ import { useForm } from "react-hook-form"
 
 
 function Login() {
-    const Closer =(
-        <>
-        <Link to={'/'}>✕</Link>
-        </>
-    );
+ 
     
 
     const {
@@ -28,7 +24,7 @@ function Login() {
                     <div className="modal-box  dark:bg-slate-900 dark:text-white">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button  className=" btn btn-sm btn-circle btn-ghost absolute right-2 top-2" ><Link to={'/'}>✕</Link> </button>
+                            <button  className=" btn btn-sm btn-circle btn-ghost absolute right-2 top-2" >✕ </button>
                             {/* <button   >✕</button> */}
                         </form>
                         <h3 className="font-bold text-lg">Login!</h3>
