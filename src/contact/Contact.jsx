@@ -16,7 +16,7 @@ function Contact() {
     <div>
       <Navbar/>
       <div className=' flex h-screen-2xl pt-28 mb-5   justify-center items-center '><div id="" className="">
-            <div className="   dark:bg-blue-900 dark:text-white border-[2px] shadow-2xl shadow-pink-200 py-8 px-8  rounded-2xl w-96    md:w-[600px]">
+            <div className="   dark:bg-slate-900 dark:text-white border-[2px] shadow-2xl shadow-pink-200 py-8 px-8  rounded-2xl w-96    md:w-[600px]">
 
                 <div className='flex justify-between'>
                     <h3 className="font-bold text-lg">Contact Us</h3>
