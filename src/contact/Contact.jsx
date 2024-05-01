@@ -15,15 +15,15 @@ function Contact() {
     <>
     <div>
       <Navbar/>
-      <div className='flex h-screen-2xl pt-28 mb-5   justify-center items-center '><div id="" className="">
-            <div className="  dark:bg-slate-900 dark:text-white border-[2px] shadow-2xl shadow-pink-200 py-8 px-8  rounded-2xl w-96    md:w-[600px]">
+      <div className=' flex h-screen-2xl pt-28 mb-5   justify-center items-center '><div id="" className="">
+            <div className="   dark:bg-blue-900 dark:text-white border-[2px] shadow-2xl shadow-pink-200 py-8 px-8  rounded-2xl w-96    md:w-[600px]">
 
                 <div className='flex justify-between'>
                     <h3 className="font-bold text-lg">Contact Us</h3>
                     <Link to={'/'}> <img className='w-10 hover:border-[1px]  hover:p-2 rounded-full border-slate-900 transition-all duration-100  ' src="https://cdn2.iconfinder.com/data/icons/symbols-8/50/274C-cross-mark-1024.png" alt="" /> </Link>
                 </div>
                 <div>
-                    <form className='p-4 '  onSubmit={handleSubmit(onSubmit)}>
+                    <form className='p-4 '  onSubmit={handleSubmit(onSubmit)} >
                         <div className='flex md:flex-row flex-col mb-[-10px] '>
                            
                         </div>
