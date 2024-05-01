@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 
 
+
 const navbar = () => {
    
     const location = useLocation();
@@ -35,6 +36,7 @@ const navbar = () => {
         if(window.location.pathname=='/login'){
             click();
         }
+      
         const handleScroll = ()=>{
             if(window.scrollY>0){
                 setSticky(true)
