@@ -6,6 +6,7 @@ import Courses from './courses/Courses'
 import SignUp from './components/SignUp'
 import Contact from './contact/Contact'
 import About from './about/About'
+import Err404 from './components/Err404'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/login' element={<Home/>} />
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/about' element={<About/> }/>
+        <Route path='*' element={<Err404/>}/>
       </Routes>
 </div>
       
