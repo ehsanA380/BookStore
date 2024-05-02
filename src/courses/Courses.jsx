@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
 import Course from '../components/Course'
+
 function Courses() {
+  
+
   return (
     <>
         <Navbar/>
