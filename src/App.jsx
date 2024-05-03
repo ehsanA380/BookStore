@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Toaster } from 'react-hot-toast';
 import Home from './home/Home'
 import { Navigate, Route, Routes } from 'react-router-dom'
@@ -12,10 +12,28 @@ import { useAuth } from './context/AuthProvider';
 
 function App() {
   const [authUser, setAuthUser] = useAuth()
+  const [loader,setLoader] =useState(false)
+  
+  const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+// console.log('Page load time is ' + (loadTime / 1000) + ' seconds');
+  useEffect(()=>{
+    setLoader(true)
+    setTimeout(() => {
+      setLoader(false)
+    }, loadTime);
+
+
+  },[])
   // console.log(authUser);
   return (
     <>
-      
+      {
+        loader?
+        <div className='w-screen h-screen dark:bg-black flex justify-center items-center'>
+          <img src="https://cdn.dribbble.com/users/154752/screenshots/1244719/book.gif " className='rounded-full rounded-t-full md:w-96 md:h-96 w-40 h-40  border-2 border-black' alt="loading..." />
+        </div>
+        :
+
 <div className='dark:text-white dark:bg-slate-900  '>
 <Routes>
         <Route path='/' element={<Home/>}/>
@@ -28,6 +46,7 @@ function App() {
       </Routes>
       <Toaster/>
 </div>
+}
       
     </>
   )
