@@ -3,14 +3,16 @@ import mongoose from "mongoose"
 import dotenv from 'dotenv'
 
 
-const dbConn= ( MongoDbURI)=>{
+const db= (MongoDbURI )=>{
     try {
     mongoose.connect(MongoDbURI,{
         
     })
-    console.log("connected ")
+    console.log("db connected ")
 } catch (error) {
     console.log(error);
 }
 }
-export default dbConn
+
+export default db;
+

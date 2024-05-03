@@ -1,9 +1,9 @@
 import express, { json } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
-import dbConn from './_dbConn.js'
 import bookRoute from './route/book.route.js'
 import userRoute from './route/user.route.js'
+import db from './_dbConn.js'
 
 
 
@@ -15,7 +15,8 @@ dotenv.config()
 const port = process.env.PORT || 4000
 const MongoDbURI = process.env.MongoDbURI
 // db conneton
-dbConn(MongoDbURI)
+
+  db(MongoDbURI);
 
 // defining routes
 
