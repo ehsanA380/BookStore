@@ -12,42 +12,43 @@ import { useAuth } from './context/AuthProvider';
 
 function App() {
   const [authUser, setAuthUser] = useAuth()
-  const [loader,setLoader] =useState(false)
-  
-  const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
-// console.log('Page load time is ' + (loadTime / 1000) + ' seconds');
-  useEffect(()=>{
-    setLoader(true)
-    setTimeout(() => {
-      setLoader(false)
-    }, loadTime);
+  const [loading, setLoading] = useState(true)
+
+  const handleLoading = () => {
+    setLoading(false);
+  }
 
 
-  },[])
+  useEffect(() => {
+    window.addEventListener("load", handleLoading);
+    return () => window.removeEventListener("load", handleLoading);
+  }, [])
+
+
   // console.log(authUser);
   return (
     <>
       {
-        loader?
-        <div className='w-screen h-screen dark:bg-black flex justify-center items-center'>
-          <img src="https://cdn.dribbble.com/users/154752/screenshots/1244719/book.gif " className='rounded-full rounded-t-full md:w-96 md:h-96 w-40 h-40  border-2 border-black' alt="loading..." />
-        </div>
-        :
+        loading ?
+          <div className='w-screen h-screen dark:bg-black flex justify-center items-center'>
+            <img src="https://cdn.dribbble.com/users/154752/screenshots/1244719/book.gif " className='rounded-full rounded-t-full md:w-96 md:h-96 w-40 h-40  border-2 border-black' alt="loading..." />
+          </div>
+          :
 
-<div className='dark:text-white dark:bg-slate-900  '>
-<Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/Course' element={authUser?<Courses/>:<Navigate to='/signup' />}/>
-        <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/login' element={!authUser? <Home/> : <Navigate to='/'/>} />
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/about' element={<About/> }/>
-        <Route path='*' element={<Err404/>}/>
-      </Routes>
-      <Toaster/>
-</div>
-}
-      
+          <div className='dark:text-white dark:bg-slate-900  '>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/Course' element={authUser ? <Courses /> : <Navigate to='/signup' />} />
+              <Route path='/signup' element={<SignUp />} />
+              <Route path='/login' element={!authUser ? <Home /> : <Navigate to='/' />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/about' element={<About />} />
+              <Route path='*' element={<Err404 />} />
+            </Routes>
+            <Toaster />
+          </div>
+      }
+
     </>
   )
 }
