@@ -4,9 +4,7 @@ import mongoose from "mongoose"
 
 const db= (MongoDbURI )=>{
     try {
-    mongoose.connect(MongoDbURI,{
-        
-    })
+    mongoose.connect(MongoDbURI)
     console.log("db connected ")
 } catch (error) {
     console.log(error);
