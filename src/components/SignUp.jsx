@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useForm } from "react-hook-form"
@@ -12,6 +12,7 @@ function SignUp() {
         handleSubmit,
         formState: { errors },
       } = useForm()
+    const [spinner, setSpinner] = useState(false);    
      
       const onSubmit = async (data) =>{
         const userInfo={
@@ -20,9 +21,11 @@ function SignUp() {
             email:data.email,
             password:data.password
         }
+        setSpinner(true)
         await axios.post('https://bookstore-backend-v5wi.onrender.com/user/signup',userInfo)
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
+            setSpinner(false)
             if(res.data){
                 // alert("Signup Successfully!")
                 toast.success('SignedUp successfully');
@@ -77,7 +80,15 @@ function SignUp() {
                         <input {...register("password", { required: true })} type="password" id='spassword' placeholder='Enter your password ' className='focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4' />
                         {errors.password && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                         <div className='flex justify-between '>
-                            <button className='btn btn-sm btn-secondary rounded  block' >SignUp</button>
+                            {
+                                spinner?
+                                <span className="loading loading-spinner loading-lg"></span>
+
+                                :
+                                <button className='btn btn-sm btn-secondary rounded  block' >SignUp</button>
+
+
+                            }
                
                             <h3 className='mt-1'>already registerd? <Link className='text-blue-500 underline cursor-pointer' to='/login' >Login</Link >
                             
