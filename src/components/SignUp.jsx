@@ -37,10 +37,11 @@ function SignUp() {
             }
         }).catch((err)=>{
             console.log(err);
+            setSpinner(false)
             // alert("Error: "+err.response.data.message)
             toast.error("Error: "+err.response.data.message);
         })
-        console.log(userInfo);
+        // console.log(userInfo);
         
 
     }
