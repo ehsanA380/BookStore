@@ -1,6 +1,6 @@
 import express, { json } from 'express'
-import dotenv from 'dotenv'
 import cors from 'cors'
+import dotenv from 'dotenv'
 import bookRoute from './route/book.route.js'
 import userRoute from './route/user.route.js'
 import db from './_dbConn.js'
@@ -12,8 +12,9 @@ app.use(cors())
 app.use(express.json())
 dotenv.config()
 
-const port = process.env.PORT || 4000
-const MongoDbURI = process.env.MongoDbURI
+const port = 4001
+// const MongoDbURI = process.env.MongoDbURI
+const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ruvlnou.mongodb.net/?retryWrites=true&w=majority&appName=EhasanBookStore';
 // db conneton
 
 
