@@ -17,11 +17,10 @@ function App() {
   const handleLoading = () => {
     setLoading(false);
   }
-
-
+ 
   useEffect(() => {
     window.addEventListener("load", handleLoading);
-    return () => window.removeEventListener("load", handleLoading);
+    // return () => window.removeEventListener("load", handleLoading);
   }, [])
 
 
