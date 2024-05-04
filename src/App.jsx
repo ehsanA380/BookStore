@@ -12,15 +12,24 @@ import { useAuth } from './context/AuthProvider';
 
 function App() {
   const [authUser, setAuthUser] = useAuth()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
-  const handleLoading = () => {
-    setLoading(false);
-  }
+  // const handleLoading = () => {
+  //   setLoading(false);
+  // }
+  window.onload = function exampleFunction(){
+    console.log('loaded');
+    setLoading(false)
+    }
  
+    
   // useEffect(() => {
-  //   window.addEventListener("load", handleLoading);
+  //   // window.addEventListener("load", handleLoading);
   //   // return () => window.removeEventListener("load", handleLoading);
+
+  //   setTimeout(() => {
+  //     setLoading(false)
+  //   }, 100);
   // }, [])
 
 

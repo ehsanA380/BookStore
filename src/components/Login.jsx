@@ -64,7 +64,7 @@ function Login() {
                             <form className='p-4   ' onSubmit={handleSubmit(onSubmit)}>
                                 <label htmlFor="email">Email</label>
                                 <br />
-                                <input {...register("email", { required: true })} type="text" id='email' placeholder='Enter your email' className='bg-transparent p-2 md:w-4/5 w-full  outline-none border rounded my-4' />
+                                <input {...register("email", { required: true })} type="email" id='email' placeholder='Enter your email' className='bg-transparent p-2 md:w-4/5 w-full  outline-none border rounded my-4' />
                                 {errors.email && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                                 <label htmlFor="password" className='block'  >Password</label>
                                 <input {...register("password", { required: true })} type="password" id='password' placeholder='Enter your password ' className='w-full md:w-4/5  bg-transparent p-2 outline-none border rounded my-4' />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
+import Abouts from '../components/Abouts'
 
  function About() { 
   
@@ -13,7 +14,7 @@ import Footer from '../components/Footer'
     <>
       <div >
         <Navbar />
-        <h1>About</h1>
+        <Abouts/>
         <Footer />
       </div>
     </>
