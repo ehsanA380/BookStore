@@ -18,14 +18,12 @@ function App() {
   //   setLoading(false);
   // }
  
-
-    useEffect(()=>{
-       window.onload = function exampleFunction(){
-    console.log('loaded');
-    setLoading(false)
-    
-    }
-    },[])
+// comment for chandan 
+useEffect(()=>{
+      setTimeout(() => {
+        setLoading(false)
+      }, 1500);
+},[false])
  
     
   // useEffect(() => {
