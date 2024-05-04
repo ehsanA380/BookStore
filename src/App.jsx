@@ -12,18 +12,18 @@ import { useAuth } from './context/AuthProvider';
 
 function App() {
   const [authUser, setAuthUser] = useAuth()
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   // const handleLoading = () => {
   //   setLoading(false);
   // }
  
 // comment for chandan 
-useEffect(()=>{
-      setTimeout(() => {
-        setLoading(false)
-      }, 1500);
-},[false])
+// useEffect(()=>{
+//       setTimeout(() => {
+//         setLoading(false)
+//       }, 1500);
+// },[false])
  
     
   // useEffect(() => {
