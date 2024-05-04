@@ -18,7 +18,7 @@ function App() {
   //   setLoading(false);
   // }
  
-// comment for chandan 
+// comment for chandan Prajapti
 useEffect(()=>{
       setTimeout(() => {
         setLoading(false)
