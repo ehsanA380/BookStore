@@ -5,11 +5,7 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import AuthProvider from './context/AuthProvider.jsx'
 
-ReactDOM.createRoot(document.getElementById('load')).render(
-  
-  <div><h1>loding..................load....</h1><App/>
-  </div>
-)
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='dark:text-white dark:bg-slate-900'>
     <BrowserRouter>
