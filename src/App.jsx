@@ -17,10 +17,15 @@ function App() {
   // const handleLoading = () => {
   //   setLoading(false);
   // }
-  window.onload = function exampleFunction(){
+ 
+
+    useEffect(()=>{
+       window.onload = function exampleFunction(){
     console.log('loaded');
     setLoading(false)
+    
     }
+    },[])
  
     
   // useEffect(() => {
