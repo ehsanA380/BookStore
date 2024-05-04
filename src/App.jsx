@@ -12,39 +12,12 @@ import { useAuth } from './context/AuthProvider';
 
 function App() {
   const [authUser, setAuthUser] = useAuth()
-  const [loading, setLoading] = useState(false)
-
-  // const handleLoading = () => {
-  //   setLoading(false);
-  // }
- 
-// comment for chandan 
-// useEffect(()=>{
-//       setTimeout(() => {
-//         setLoading(false)
-//       }, 1500);
-// },[false])
- 
-    
-  // useEffect(() => {
-  //   // window.addEventListener("load", handleLoading);
-  //   // return () => window.removeEventListener("load", handleLoading);
-
-  //   setTimeout(() => {
-  //     setLoading(false)
-  //   }, 100);
-  // }, [])
 
 
   // console.log(authUser);
   return (
     <>
-      {
-        loading ?
-          <div className='w-screen h-screen dark:bg-black flex justify-center items-center'>
-            <img src="https://cdn.dribbble.com/users/154752/screenshots/1244719/book.gif " className='rounded-full rounded-t-full md:w-96 md:h-96 w-40 h-40  border-2 border-black' alt="loading..." />
-          </div>
-          :
+     
 
           <div className='dark:text-white dark:bg-slate-900  '>
             <Routes>
@@ -58,7 +31,7 @@ function App() {
             </Routes>
             <Toaster />
           </div>
-      }
+      
 
     </>
   )
