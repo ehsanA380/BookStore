@@ -18,10 +18,10 @@ function App() {
     setLoading(false);
   }
  
-  useEffect(() => {
-    window.addEventListener("load", handleLoading);
-    // return () => window.removeEventListener("load", handleLoading);
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener("load", handleLoading);
+  //   // return () => window.removeEventListener("load", handleLoading);
+  // }, [])
 
 
   // console.log(authUser);
