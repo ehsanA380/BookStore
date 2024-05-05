@@ -29,6 +29,7 @@ const navbar = () => {
             localStorage.setItem('theme', 'light')
             document.body.classList.remove('dark')
         }
+        // console.log(authUser.email);
 
     }, [theme])
 
@@ -64,6 +65,15 @@ const navbar = () => {
             <li><Link to='/Course'>Course</Link></li>
             <li><Link to='/Contact'>Contact</Link></li>
             <li><Link to='/About'>About</Link></li>
+            
+            {authUser?
+                (authUser.email=='admin@gmail.com')?
+
+                    <li className='bg-red-500 text-white rounded-md'><Link to='/admin'>Admin</Link></li>
+                :
+                '':''
+            }
+        
         </>
     );
 
