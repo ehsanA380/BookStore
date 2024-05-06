@@ -1,12 +1,15 @@
 import React from 'react'
 
-import banner from '../../public/Banner.png'
+// import banner from '../../public/Banner.png'
+// import banner from 'https://w7.pngwing.com/pngs/535/280/png-transparent-bookselling-bookshop-store-material-bookshop-area.png'
+const banner = 'https://cdn2.iconfinder.com/data/icons/nuts-4/50/40-512.png'
+
 
 
 function Banner() {
     return (
         <>
-            <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row md:py-40 Md:mb-10'>
+            <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row md:py-40 Md:mb-10 ' >
                 <div className='w-full md:w-1/2 mt-0 md:mt-30 order-2  md:order-1' >
                     <div className='space-y-12'>
 
@@ -21,7 +24,7 @@ function Banner() {
                     <button className="btn btn-secondary mt-6 mb-10">subscribe</button>
 
                 </div>
-                <div className='w-full md:w-1/2  order-1 md:order-2 mt-20 md:mt-36 flex '>
+                <div className='w-full md:w-1/2  order-1 md:order-2 mt-20 md:mt-0 flex '>
                     <img src={banner} className='h-92 w-92 md:pl-28 pl-0  ' alt=""  />
                 </div>
             </div>

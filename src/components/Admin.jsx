@@ -89,10 +89,10 @@ function Admin() {
                             </div>
                             <div className='px-1  w-1/2'>
                                 <label htmlFor='bPrice'> Category:</label>
-                                <select   {...register("category", { required: true })} type="text"  className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='category' >  
-                                    <option  disabled >Select</option>
-                                    <option selected value='free'>Free</option>
-                                    <option required value='paid'>Paid</option>
+                                <select   {...register("category", { required: true })} type="text"  className="dark:text-white focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='category' >  
+                                    <option className='dark:text-black' disabled >Select</option>
+                                    <option  className='dark:text-black' selected value='free'>Free</option>
+                                    <option className='dark:text-black' required value='paid'>Paid</option>
                                 </select>
                                 {errors.category && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                                 
