@@ -17,7 +17,7 @@ export const getBook = async (req, res) => {
 export const addBook = async (req, res) => {
     const { name, price, category, title, image } = req.body;
     try {
-        const options = {timeout:30000};
+        // const options = {timeout:30000};
         const addBook = new Book({
             name,
             price,
@@ -27,7 +27,7 @@ export const addBook = async (req, res) => {
         })
         await addBook.save();
         res.status(200).json({
-            message: "User Created Succefully", user: {
+            message: "User Created Succefully", book: {
                 _id: addBook._id
             }
         })

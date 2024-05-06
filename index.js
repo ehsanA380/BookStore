@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import bookRoute from './route/book.route.js'
 import userRoute from './route/user.route.js'
+import subscribeRoute from './route/subscriber.route.js'
 import db from './_dbConn.js'
 
 
@@ -14,8 +15,8 @@ dotenv.config()
 
 const port = 4001
 // const MongoDbURI = process.env.MongoDbURI
-const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ruvlnou.mongodb.net/?retryWrites=true&w=majority&appName=EhasanBookStore';
-// const MongoDbURI = 'mongodb://127.0.0.1:27017/bookStore';
+// const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ruvlnou.mongodb.net/?retryWrites=true&w=majority&appName=EhasanBookStore';
+const MongoDbURI = 'mongodb://127.0.0.1:27017/bookStore';
 // db conneton
 
 
@@ -25,6 +26,7 @@ const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ru
 
 app.use("/book",bookRoute)
 app.use("/user",userRoute)
+app.use("/subscribe",subscribeRoute)
 
 // console.log(process.env.PORT);
 
