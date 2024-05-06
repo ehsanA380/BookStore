@@ -37,7 +37,8 @@ function Banner() {
         try {
 
 
-            const res = await axios.post('http://localhost:4001/subscribe/user', data)
+            // const res = await axios.post('http://localhost:4001/subscribe/user', data)
+            const res = await axios.post('https://bookstore-backend-v5wi.onrender.com/subscribe/user', data)
                 .then(res => {
                     // console.log(res.data);
                     toast.success('Thanks to subscribe the newsLetter');
