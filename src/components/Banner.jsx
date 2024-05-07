@@ -90,7 +90,7 @@ function Banner() {
                             </label>
                             {
                                 spinner ?
-                                    <span className="loading loading-spinner loading-lg"></span> :
+                                    <span className="loading loading-spinner loading-lg mt-6 mb-10"></span> :
 
 
 
