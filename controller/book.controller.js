@@ -1,5 +1,5 @@
 import Book from "../model/Book.model.js";
-
+// api logic for getBook
 export const getBook = async (req, res) => {
     try {
         const options = { timeout: 30000 };
@@ -13,7 +13,7 @@ export const getBook = async (req, res) => {
         res.send(500).json(error)
     }
 }
-
+//  api login for addBook
 export const addBook = async (req, res) => {
     const { name, price, category, title, image } = req.body;
     try {
@@ -36,3 +36,36 @@ export const addBook = async (req, res) => {
         res.send(500).json(error)
     }
 }
+// api logic for updateBook
+export const updateBook = async (req, res) => {
+
+    const id = req.params.id;
+    const { name, price, category, title, image } = req.body;
+
+    const filter = { _id: id };
+    const update = {
+        name: name,
+        price: price,
+        category: category,
+        title: title,
+        image: image
+    };
+    try {
+        const book = await Book.countDocuments(filter); // 0
+        
+        const res = await Book.findOneAndUpdate(filter, update
+            //     , {
+                //     // new: true,
+                //     upsert: true,
+                //     // rawResult: true // Return the raw result from the MongoDB driver
+                // }
+            );
+            res.json(res)
+        // console.log(res);
+    }
+    catch (err) {
+        res.json(err)
+        res.status(500)
+    }
+
+} 
