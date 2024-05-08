@@ -79,8 +79,8 @@ function Freebook() {
               {
               slideArr.map(data=>(
                 <div className='p-3 hover:scale-105 duration-200 '>
-                <div className=" card w-98 h-96 bg-base-100 shadow-xl mb-10 border-2 dark:bg-slate-900 dark:text-white">
-                <div className="skeleton h-full w-full "></div>
+                <div className=" card w-98 h-96 bg-base-100 shadow-xl mb-10 border-2">
+                <div className="skeleton h-full w-full  "></div>
                 </div>
               </div>
               ))}
