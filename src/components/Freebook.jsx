@@ -7,16 +7,16 @@ import Cards from './Cards';
 import axios from 'axios'
 
 function Freebook() {
-  
+
   var settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
-   
+
       {
         breakpoint: 1024,
         settings: {
@@ -44,38 +44,58 @@ function Freebook() {
     ]
   };
 
-  const [book,setBook]= useState([]);
+  const [book, setBook] = useState([]);
+  const [loadingBook, setLoadingBook] = useState(true);
+  const slideArr= [3,4,5];
 
-  useEffect(()=>{
-    const getBook=async ()=>{
-      try{
+  useEffect(() => {
+    const getBook = async () => {
+      try {
         const res = await axios.get('https://bookstore-backend-v5wi.onrender.com/book');
-        const data=  res.data;
-        const Freebook =  data.filter((data) => (data.category === "free"));
+        const data = res.data;
+        const Freebook = data.filter((data) => (data.category === "free"));
         setBook(Freebook);
+        setLoadingBook(false)
         // console.log(Freebook);
       }
-      catch(err){
+      catch (err) {
         console.log(err);
       }
     }
     getBook();
-  },[])
-  
+  }, [])
+
   return (
     <>
       <div className='max-w-screen-2xl container mx-auto md:px-20 px-5 '>
         <div space-y-10>
 
           <h1 className='font-semi-bold text-xl pb-2'>Free Offered Course</h1>
-          
+
         </div>
         <div className='px-5'>
-          <Slider {...settings}>
-          {book.map(item=>(
-            <Cards item={item} key={item} />
-          ))}
-          </Slider>
+          {loadingBook ?
+            <Slider {...settings}>
+              {
+              slideArr.map(data=>(
+                <div className='p-3 hover:scale-105 duration-200 '>
+                <div className=" card w-98 h-96 bg-base-100 shadow-xl mb-10 border-2 dark:bg-slate-900 dark:text-white">
+                <div className="skeleton h-full w-full "></div>
+                </div>
+              </div>
+              ))}
+              
+            </Slider>
+            :
+            <Slider {...settings}>
+              {
+                book.map(item => (
+                  <Cards item={item} key={item} />
+                ))}
+            </Slider>
+          }
+
+
         </div>
       </div>
     </>

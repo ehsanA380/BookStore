@@ -6,6 +6,10 @@ import {Link} from 'react-router-dom'
 import axios  from  'axios'
 function Course() {
   const [book,setBook]= useState([]);
+  const [loadingBook, setLoadingBook] = useState(true);
+  const slideArr= [1,2,3,4,5,6,7,8,9,10,11,12];
+  
+
 
   useEffect(()=>{
     const getBook = async ()=>{
@@ -13,6 +17,7 @@ function Course() {
        const res= await axios.get('https://bookstore-backend-v5wi.onrender.com/book')
         // console.log(res.data);
         setBook(res.data)
+        setLoadingBook(false)
       }catch(err){
         console.log(err);
       }
@@ -29,9 +34,21 @@ function Course() {
                 <Link to={'/'}><button className='mt-6 bg-pink-500 text-white px-4 py-2 rounded-md  hover:bg-pink-700 duration-300'>Back</button></Link>
             </div>
                 <div className='mt-12 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 '>
-                {book.map(item=>(
+                  {
+                    loadingBook?
+                    slideArr.map(data=>(
+                      <div className='p-3 hover:scale-105 duration-200 '>
+                      <div className=" card w-98 h-96 bg-base-100 shadow-xl mb-10 border-2 dark:bg-slate-900 dark:text-white">
+                      <div className="skeleton h-full w-full "></div>
+                      </div>
+                    </div>
+                    ))
+                    :
+                    book.map(item=>(
                     <Cards item={item} key={item.id}/>
-                ))}
+                    ))
+                  }
+                
                 </div>
         </div>
     </>
