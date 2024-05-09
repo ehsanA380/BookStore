@@ -51,17 +51,16 @@ export const updateBook = async (req, res) => {
         image: image
     };
     try {
-        const book = await Book.countDocuments(filter); // 0
+        const book = await Book.findOne(filter);
+        book.name=update.name;
+        book.price=update.price;
+        book.category=update.category;
+        book.title=update.title;
+        book.image=update.image;
+        const updateBook= await book.save();
+        res.status(200).json(updateBook);
         
-        const res = await Book.findOneAndUpdate(filter, update
-            //     , {
-                //     // new: true,
-                //     upsert: true,
-                //     // rawResult: true // Return the raw result from the MongoDB driver
-                // }
-            );
-            res.json(res)
-        // console.log(res);
+        
     }
     catch (err) {
         res.json(err)
@@ -69,3 +68,19 @@ export const updateBook = async (req, res) => {
     }
 
 } 
+
+// api for get book by id
+export const getBookById = async (req,res)=>{
+    const id = req.params.id;
+    if (id==null ||id==undefined ||id=='') {
+        res.status(500).json({message:"id is null"})
+    }
+    try{
+        const book= await Book.findOne({_id:id})
+        res.status(200).json(book)
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
