@@ -8,6 +8,7 @@ import db from './_dbConn.js'
 
 
 
+
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -15,8 +16,8 @@ dotenv.config()
 
 const port = 4001
 // const MongoDbURI = process.env.MongoDbURI
-const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ruvlnou.mongodb.net/?retryWrites=true&w=majority&appName=EhasanBookStore';
-// const MongoDbURI = 'mongodb://127.0.0.1:27017/bookStore';
+// const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ruvlnou.mongodb.net/?retryWrites=true&w=majority&appName=EhasanBookStore';
+const MongoDbURI = 'mongodb://127.0.0.1:27017/bookStore';
 // db conneton
 
 
@@ -27,6 +28,7 @@ const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ru
 app.use("/book",bookRoute)
 app.use("/user",userRoute)
 app.use("/subscribe",subscribeRoute)
+// app.use("book",bookRoute)
 
 // console.log(process.env.PORT);
 
