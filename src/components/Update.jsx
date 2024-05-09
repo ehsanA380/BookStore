@@ -31,7 +31,7 @@ function Update({item}) {
         try {
             
             
-            const bookRes= await axios.put(`http://localhost:4001/book/update/${item}`,bookInfo)
+            const bookRes= await axios.put(`https://bookstore-backend-v5wi.onrender.com/book/update/${item}`,bookInfo)
             .then(res=>{
 
                 setTimeout(() => {
