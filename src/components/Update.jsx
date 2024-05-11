@@ -69,24 +69,24 @@ function Update() {
                     <div>
                         <form className='p-4' onSubmit={handleSubmit(onSubmit)}>
                             <div className='flex md:flex-row flex-col mb-[-10px] '>
-                                <div className='px-1 w-1/2'>
+                                <div className='px-1 md:w-1/2 w-full '>
                                     <label htmlFor='bname'>Book Name:</label>
                                     <input {...register("bname", { required: true })} type="text" className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='bname' />
                                     {errors.bname && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                                 </div>
-                                <div className='px-1 w-1/2'>
+                                <div className='px-1 md:w-1/2 w-full'>
                                     <label htmlFor='bprice'>Book Price:</label>
                                     <input {...register("bprice", { required: true })} type="number" className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='bprice' />
                                     {errors.bprice && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                                 </div>
                             </div>
                             <div className='flex md:flex-row flex-col mb-[-10px]  mt-3'>
-                                <div className='px-1 w-1/2'>
+                                <div className='px-1 md:w-1/2 w-full'>
                                     <label htmlFor='btitle'>Book Title:</label>
                                     <input {...register("btitle", { required: true })} type="text" className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='btitle' />
                                     {errors.btitle && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                                 </div>
-                                <div className='px-1 w-1/2'>
+                                <div className='px-1 md:w-1/2 w-full'>
                                     <label htmlFor='bcategory'>Book Category:</label>
                                     <select {...register("bcategory", { required: true })} type="text" className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='bcategory'>
                                         <option value="select" className=' dark:text-black' disabled>Select</option>
@@ -96,7 +96,7 @@ function Update() {
                                     {errors.bcategory && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                                 </div>
                             </div>
-                            <div className='px-1 mt-3'>
+                            <div className='px-1 md:w-1/2 w-full'>
                                 <label htmlFor='bimage'>Book Image:</label>
                                 <input {...register("bimage", { required: true })} type="text" className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='bimage' />
                                 {errors.bimage && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
