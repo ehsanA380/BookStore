@@ -39,47 +39,36 @@ export const addBook = async (req, res) => {
 // api logic for updateBook
 export const updateBook = async (req, res) => {
 
-    const id = req.params.id;
-    const { name, price, category, title, image } = req.body;
-
-    const filter = { _id: id };
-    const update = {
-        name: name,
-        price: price,
-        category: category,
-        title: title,
-        image: image
-    };
     try {
-        const book = await Book.findOne(filter);
-        book.name=update.name;
-        book.price=update.price;
-        book.category=update.category;
-        book.title=update.title;
-        book.image=update.image;
-        const updateBook= await book.save();
-        res.status(200).json(updateBook);
-        
-        
-    }
-    catch (err) {
-        res.json(err)
-        res.status(500)
-    }
+        const itemId = req.params.id;
+        const updatedData = req.body; // New data from the client
 
-} 
+        // Find the item by ID and update it
+        const updatedItem = await Book.findByIdAndUpdate(itemId, updatedData, {
+            new: true, // Return the updated item
+        });
+        res.status(200).json(updatedItem);
+        
+    } catch (error) {
+        console.error('Error updating item:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+}
+
+
+
 
 // api for get book by id
-export const getBookById = async (req,res)=>{
+export const getBookById = async (req, res) => {
     const id = req.params.id;
-    if (id==null ||id==undefined ||id=='') {
-        res.status(500).json({message:"id is null"})
+    if (id == null || id == undefined || id == '') {
+        res.status(500).json({ message: "id is null" })
     }
-    try{
-        const book= await Book.findOne({_id:id})
+    try {
+        const book = await Book.findOne({ _id: id })
         res.status(200).json(book)
     }
-    catch(err){
+    catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
