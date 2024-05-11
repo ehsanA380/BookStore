@@ -1,3 +1,4 @@
+import { response } from "express";
 import Book from "../model/Book.model.js";
 // api logic for getBook
 export const getBook = async (req, res) => {
@@ -52,6 +53,18 @@ export const updateBook = async (req, res) => {
     } catch (error) {
         console.error('Error updating item:', error);
         res.status(500).json({ message: 'Server error' });
+    }
+}
+// api logic for deleteBook
+export const deleteBook = async (req,res)=>{
+    try {
+        const itemId = req.params.id;
+        const deleteBook= await Book.deleteOne({_id:itemId})
+        res.status(200).json({deleteBook,message:"Delete Book Successfully"});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error,message:"Internal Server Error"})
     }
 }
 
