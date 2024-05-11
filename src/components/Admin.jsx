@@ -70,24 +70,24 @@ function Admin() {
                     <form className='p-4'  onSubmit={handleSubmit(onSubmit)}>
                         
                         <div className='flex  flex-col mb-[-10px] md:flex-row border-1 '>
-                            <div className='px-1  w-1/2'>
+                            <div className='px-1 w-full md:w-1/2'>
                                 <label htmlFor='bname'> Name:</label>
                                 <input {...register("bname", { required: true })} type="text" placeholder='Enter the Book name' className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='bname' />
                                 {errors.bname && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                             </div>
-                            <div className='px-1  w-1/2'>
+                            <div className='px-1  w-full md:w-1/2'>
                                 <label htmlFor='bPrice'> Price:</label>
                                 <input {...register("bPrice", { required: true })} type="text" placeholder='Enater the book price' className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='bPrice' />
                                 {errors.bPrice && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                             </div>
                         </div>
                         <div className='flex  flex-col mb-[-10px] md:flex-row  '>
-                            <div className='px-1  w-1/2'>
+                            <div className='px-1  w-full md:w-1/2'>
                                 <label htmlFor='bname'> Title:</label>
                                 <input {...register("title", { required: true })} type="text" placeholder='Enter the book title' className="focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='title' />
                                 {errors.title && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                             </div>
-                            <div className='px-1  w-1/2'>
+                            <div className='px-1 w-full md:w-1/2'>
                                 <label htmlFor='bPrice'> Category:</label>
                                 <select   {...register("category", { required: true })} type="text"  className="dark:text-white focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4" id='category' >  
                                     <option className='dark:text-black' disabled >Select</option>

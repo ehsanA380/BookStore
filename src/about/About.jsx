@@ -14,7 +14,9 @@ import Abouts from '../components/Abouts'
     <>
       <div >
         <Navbar />
-        <Abouts/>
+        <div className='min-h-screen'>
+          <Abouts/>
+        </div>
         <Footer />
       </div>
     </>
