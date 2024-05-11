@@ -8,10 +8,11 @@ function Home() {
   return (
     <>
     <Navbar/>
-    <Banner/>
-    <Freebook/>
+    <div className='min-h-screen' >
+      <Banner/>
+      <Freebook/>
+    </div>
     <Footer/>
-
     </>
   )
 }

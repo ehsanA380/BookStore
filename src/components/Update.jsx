@@ -104,7 +104,7 @@ function Update() {
                             {
                                 spinner?
                                 <span className="loading loading-spinner loading-lg"></span>:
-                                <button className='btn btn-sm btn-secondary rounded  block' >Update</button>
+                                <button  className='btn btn-sm btn-secondary rounded  block' >Update</button>
                             }
                         </form>
                     </div>
