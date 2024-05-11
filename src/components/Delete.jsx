@@ -1,14 +1,26 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
+import {Link,useSearchParams} from 'react-router-dom';
 
 function Delete() {
     const [spinner, setSpinner] = useState(false);
+    const [searchParams, setSearchParams] = useSearchParams();
     const urlParams = new URLSearchParams(window.location.search);
     const BookId = urlParams.get('id');
     
     // funtion for delete book
     const deleleBook= async ()=>{
+        //reset param after calling this func
+        const param = searchParams.get('id');
+        // console.log("idparm",param);
+        if (param) {
+        // 👇️ Delete each query param
+        searchParams.delete('id');
+
+        // 👇️ Update state after
+        setSearchParams(searchParams);
+        }
         // Delete Api interigation---------
         setSpinner(true);
         try{
@@ -51,9 +63,9 @@ function Delete() {
                     spinner?
                     <span className="loading loading-spinner loading-lg"></span>
                     :
-                    <button className="btn ml-4 btn-sm btn-secondary rounded  block " onClick={deleleBook} >Delete</button>
+                    <button className="btn mr-4 btn-sm rounded py-2 px-3 btn-secondary   " onClick={deleleBook} >Delete</button>
                 }
-                <button className="btn mr-4 btn-sm  rounded  block" onClick={()=>document.getElementById('my_modal_5').close()}>Close</button>
+                <Link className="btn mr-4 btn-sm rounded py-2 px-3" onClick={()=>document.getElementById('my_modal_5').close()}>Close</Link>
             </div>
         </div>
         </dialog>
