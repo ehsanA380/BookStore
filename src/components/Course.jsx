@@ -30,7 +30,7 @@ function Course() {
         getBook()
         setReloadBook(false)
       }
-    }, 200);
+    }, 300);
   },[])
   return (
     <>
