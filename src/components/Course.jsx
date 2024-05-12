@@ -8,7 +8,7 @@ function Course() {
   const [book,setBook]= useState([]);
   const [loadingBook, setLoadingBook] = useState(true);
   const slideArr= [1,2,3,4,5,6,7,8,9,10,11,12];
-  
+  const [reloadBook,setReloadBook]= useState(false);
 
 
   useEffect(()=>{
@@ -25,6 +25,12 @@ function Course() {
 
     }
     getBook();
+    setInterval(() => {
+    if(reloadBook){
+        getBook()
+        setReloadBook(false)
+      }
+    }, 200);
   },[])
   return (
     <>
@@ -46,7 +52,7 @@ function Course() {
                     ))
                     :
                     book.map(item=>(
-                    <Cards item={item} key={item.id}/>
+                    <Cards item={item} key={item.id} reloadBook={reloadBook} setReloadBook={setReloadBook} />
                     ))
                   }
                 

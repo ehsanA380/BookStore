@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import {Link,useSearchParams} from 'react-router-dom';
 
-function Delete() {
+function Delete({setReloadBook}) {
     const [spinner, setSpinner] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
     const urlParams = new URLSearchParams(window.location.search);
@@ -38,6 +38,7 @@ function Delete() {
                         setSpinner(false);
                         document.getElementById('my_modal_5').close();
                     }
+                    setReloadBook(true)
                     
                 
             })

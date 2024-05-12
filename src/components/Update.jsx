@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {toast} from 'react-hot-toast'
 
-function Update() {
+function Update({setReloadBook}) {
     const {
         register,
         handleSubmit,
@@ -44,8 +44,9 @@ function Update() {
                 toast.error('Book id not matched !');
             }
             setSpinner(false)
+            setReloadBook(true)
             document.getElementById('my_modal_3').close()
-            
+
         }
         catch (err) {
             console.log(err);

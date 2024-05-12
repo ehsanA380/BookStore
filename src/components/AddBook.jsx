@@ -1,79 +1,70 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthProvider';
-import AddBook from './AddBook';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
-function Admin() {
-    // const {
-    //     register,
-    //     handleSubmit,
-    //     formState: { errors },
-    //   } = useForm()
-    // const [spinner, setSpinner] = useState(false);
-    // const [authUser,setAuthUser]=useAuth();
-    
-    // const onSubmit = async (data) =>{
-    //     const bookInfo={
-    //         name:data.bname,
-    //         price:data.bPrice,
-    //         title:data.title,
-    //         category:data.category,
-    //         image:data.imgLink
-    //     }
-    //     console.log(bookInfo);
-    //     setSpinner(true)
-    //     try{
-    //         // const bookRes= await axios.post('http://localhost:4001/book/addBook',bookInfo)
-    //         const bookRes= await axios.post('https://bookstore-backend-v5wi.onrender.com/book/addBook',bookInfo)
-    //     .then(res=>{
+function AddBook() {
+
+    const [spinner, setSpinner] = useState(false);
+    const [authUser,setAuthUser]=useAuth();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        } = useForm()
+    const onSubmit = async (data) =>{
+        const bookInfo={
+            name:data.bname,
+            price:data.bPrice,
+            title:data.title,
+            category:data.category,
+            image:data.imgLink
+        }
+        console.log(bookInfo);
+        setSpinner(true)
+        try{
+            // const bookRes= await axios.post('http://localhost:4001/book/addBook',bookInfo)
+            const bookRes= await axios.post('https://bookstore-backend-v5wi.onrender.com/book/addBook',bookInfo)
+        .then(res=>{
             
-    //             setSpinner(false);
+                setSpinner(false);
            
-    //         toast.success('Book added successfully');
+            toast.success('Book added successfully');
+            document.getElementById('my_modal_5').close();
             
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err);
-    //         setSpinner(false);
-    //         toast.error("Error: "+err.response.data.message);
-    //     })
-    //     }
-        
-    //     catch(err){
-    //         console.log("internal server error");
-    //         toast.error("Error: connection error");
+        })
+        .catch((err)=>{
+            console.log(err);
+            setSpinner(false);
+            toast.error("Error: "+err.response.data.message);
+            document.getElementById('my_modal_5').close();
+        })
+        } 
+        catch(err){
+            console.log("internal server error");
+            toast.error("Error: connection error");
+            setSpinner(false);
+            document.getElementById('my_modal_5').close();
+        }
+    }
 
-
-            
-    //     }
-    // }
-
-    // useEffect(()=>{
-    //     if (!(authUser.email=='admin@gmail.com')) {
-    //         <Navigate to={'/'}/>
-    //     }
-    // },[])
-  
-     
+    useEffect(()=>{
+        if (!(authUser.email=='admin@gmail.com')) {
+            <Navigate to={'/'}/>
+        }
+    },[])
   return (
     <>
-        <div className='flex h-screen  justify-center items-center '>
-            {/* <div id="" className=""> */}
-            <div className="  dark:bg-slate-900 dark:text-white border-[2px] shadow-2xl shadow-pink-200 py-8 px-8  rounded-2xl w-96    md:w-[600px]">
-
-                <button onClick={()=>document.getElementById('my_modal_5').showModal()}>Add Book</button>
-                <AddBook/>
-
-                {/* <div className='flex justify-between'>
+    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box  dark:bg-slate-900 dark:text-white">
+        <div className='flex justify-between'>
                     <h3 className="font-bold text-lg">Admin Portal</h3>
-                    <Link to={'/'} id='close'> <img className='w-10 hover:border-[1px]  hover:p-2 rounded-full border-slate-900 transition-all duration-100  ' src="https://cdn2.iconfinder.com/data/icons/symbols-8/50/274C-cross-mark-1024.png" alt="" /> </Link>
+                    <Link  onClick={()=>document.getElementById('my_modal_5').close()}> <img className='w-10 hover:border-[1px]  hover:p-2 rounded-full border-slate-900 transition-all duration-100  ' src="https://cdn2.iconfinder.com/data/icons/symbols-8/50/274C-cross-mark-1024.png" alt="" /> </Link>
                 </div>
                 <div>
-                    <form className='p-4'  onSubmit={handleSubmit(onSubmit)}>
-                        
+                    <form className='p-4'  onSubmit={handleSubmit(onSubmit)}>  
                         <div className='flex  flex-col mb-[-10px] md:flex-row border-1 '>
                             <div className='px-1 w-full md:w-1/2'>
                                 <label htmlFor='bname'> Name:</label>
@@ -128,11 +119,10 @@ function Admin() {
                         </div>
                     </form>
                 </div>
-            </div> */}
-        </div></div>
-    
+        </div>
+    </dialog>
     </>
   )
 }
 
-export default Admin
+export default AddBook

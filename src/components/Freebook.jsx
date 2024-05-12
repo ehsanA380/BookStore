@@ -8,6 +8,8 @@ import axios from 'axios'
 
 function Freebook() {
 
+  const [reloadBook,setReloadBook]= useState(false);
+
   var settings = {
     dots: true,
     infinite: true,
@@ -63,6 +65,12 @@ function Freebook() {
       }
     }
     getBook();
+    setInterval(() => {
+      if(reloadBook){
+          getBook()
+          setReloadBook(false)
+        }
+      }, 200);
   }, [])
 
   return (
@@ -90,7 +98,7 @@ function Freebook() {
             <Slider {...settings}>
               {
                 book.map(item => (
-                  <Cards item={item} key={item._id} />
+                  <Cards item={item} key={item._id} setReloadBook={setReloadBook} />
                 ))}
             </Slider>
           }
