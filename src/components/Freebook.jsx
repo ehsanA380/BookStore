@@ -70,7 +70,7 @@ function Freebook() {
           getBook()
           setReloadBook(false)
         }
-      }, 300);
+      }, 190);
   }, [])
 
   return (

@@ -10,27 +10,27 @@ function Course() {
   const slideArr= [1,2,3,4,5,6,7,8,9,10,11,12];
   const [reloadBook,setReloadBook]= useState(false);
 
-
+  
   useEffect(()=>{
     const getBook = async ()=>{
       try{
-       const res= await axios.get('https://bookstore-backend-v5wi.onrender.com/book')
-      //  const res= await axios.get('http://localhost:4001/book')
+        const res= await axios.get('https://bookstore-backend-v5wi.onrender.com/book')
+        //  const res= await axios.get('http://localhost:4001/book')
         // console.log(res.data);
         setBook(res.data)
         setLoadingBook(false)
       }catch(err){
         console.log(err);
       }
-
+      
     }
     getBook();
     setInterval(() => {
     if(reloadBook){
         getBook()
-        setReloadBook(false)
+        setReloadBook(false)      
       }
-    }, 300);
+    }, 190);
   },[])
   return (
     <>
