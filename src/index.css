@@ -6,3 +6,25 @@ body{
     font-family: 'Poppins' , 'sans-serif';
     scroll-behavior: smooth;
 }
+
+.slick-prev:before {
+    /* content: "<"; */
+    color: #ff00d3;
+    /* font-size: 30px; */
+  }
+  
+  .slick-next:before {
+    /* content: ">"; */
+    color: #ff00d3;
+    /* font-size: 30px; */
+  }
+  .slick-dots li button::before {
+    /* font-size: 16px; */
+    color: #f39ee4;
+    opacity: 0.7;
+ }
+ .slick-dots li.slick-active button::before {
+    font-size: 16px;
+    color: #ff00d3;
+    opacity: 1;
+ }

@@ -8,24 +8,28 @@ function Course() {
   const [book,setBook]= useState([]);
   const [loadingBook, setLoadingBook] = useState(true);
   const slideArr= [1,2,3,4,5,6,7,8,9,10,11,12];
+  const [reloadBook,setReloadBook]= useState(false);
+
   
-
-
   useEffect(()=>{
     const getBook = async ()=>{
       try{
-       const res= await axios.get('https://bookstore-backend-v5wi.onrender.com/book')
-      //  const res= await axios.get('http://localhost:4001/book')
+        const res= await axios.get('https://bookstore-backend-v5wi.onrender.com/book')
+        //  const res= await axios.get('http://localhost:4001/book')
         // console.log(res.data);
         setBook(res.data)
         setLoadingBook(false)
       }catch(err){
         console.log(err);
       }
-
+      
     }
     getBook();
-  },[])
+    if(reloadBook){
+        getBook()
+        setReloadBook(false)      
+      }
+  },[reloadBook])
   return (
     <>
         <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 '>
@@ -46,7 +50,7 @@ function Course() {
                     ))
                     :
                     book.map(item=>(
-                    <Cards item={item} key={item.id}/>
+                    <Cards item={item} key={item.id} reloadBook={reloadBook} setReloadBook={setReloadBook} />
                     ))
                   }
                 

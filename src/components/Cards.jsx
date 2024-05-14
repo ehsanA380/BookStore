@@ -6,7 +6,7 @@ import Delete from './Delete';
 import { useAuth } from '../context/AuthProvider';
 
 
-function Cards({ item }) {
+function Cards({ item ,setReloadBook}) {
   // console.log(item);
   const [authUser, setAuthUser] = useAuth()
   
@@ -54,8 +54,8 @@ function Cards({ item }) {
           '':''
         }
           
-          <Update />
-          <Delete/>
+          <Update setReloadBook={setReloadBook}  />
+          <Delete setReloadBook={setReloadBook}  />
           <figure><img src={item.image} alt="Shoes" className='h-56 ' /></figure>
           <div className="card-body">
             <h2 className="card-title">

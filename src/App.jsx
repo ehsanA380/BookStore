@@ -8,7 +8,7 @@ import Contact from './contact/Contact'
 import About from './about/About'
 import Err404 from './components/Err404'
 import { useAuth } from './context/AuthProvider';
-import Admin from './components/Admin';
+import Admins from './admin/Admins';
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
               <Route path='/admin' element={
                 authUser? 
                 authUser.email=='admin@gmail.com'?
-              <Admin/>:<Navigate to='/'/>
+              <Admins/>:<Navigate to='/'/>
               :
               <Navigate to='/'/>}/>
               <Route path='*' element={<Err404 />} />

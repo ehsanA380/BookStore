@@ -8,7 +8,11 @@ import axios from 'axios'
 
 function Freebook() {
 
+  const [reloadBook,setReloadBook]= useState(false);
+
   var settings = {
+    autoplay: true,
+    autoplaySpeed: 2000,
     dots: true,
     infinite: true,
     speed: 500,
@@ -63,7 +67,11 @@ function Freebook() {
       }
     }
     getBook();
-  }, [])
+      if(reloadBook){
+          getBook()
+          setReloadBook(false)
+        }
+  }, [reloadBook])
 
   return (
     <>
@@ -73,7 +81,7 @@ function Freebook() {
           <h1 className='font-semi-bold text-xl pb-2'>Free Offered Course</h1>
 
         </div>
-        <div className='px-5'>
+        <div className='px-5 '>
           {loadingBook ?
             <Slider {...settings}>
               {
@@ -90,7 +98,7 @@ function Freebook() {
             <Slider {...settings}>
               {
                 book.map(item => (
-                  <Cards item={item} key={item._id} />
+                  <Cards item={item} key={item._id} setReloadBook={setReloadBook} />
                 ))}
             </Slider>
           }
