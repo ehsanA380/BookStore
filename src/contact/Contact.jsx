@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/navbar'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 function Contact() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
+  const [spinner,setSpinner]=useState(false);
+  const onSubmit =async (data) =>{
+    
+    console.log(data)
+    // addConatact api intregation
+    setSpinner(true)
+    try{
+      const saveContact = await axios.post('http://https://bookstore-backend-v5wi.onrender.com/contact/contactDetails',data)
+      // const saveContact = await axios.post('http://localhost:4001/contact/contactDetails',data)
+      .then(res=>{
+        console.log(res);
+        setSpinner(false)
+      })
+    }catch(err){
+      console.log(err);
+      setSpinner(false)
+    }
+  } 
 
-  const onSubmit = (data) => console.log(data)
+    
+
   return (
     <>
     <div>
@@ -38,7 +58,13 @@ function Contact() {
                         <textarea  rows={5} {...register("message", { required: true })} type="text" id='msg' placeholder='Enter your Message Here ' className='focus:border-green-500 w-full bg-transparent p-2 outline-none border rounded my-4' />
                         {errors.message && <span className='block text-red-500 mt-[-10px] mb-5'>This field is required</span>}
                         <div className='flex justify-between '>
+                          {
+                            spinner?
+                            <span className="loading loading-spinner loading-lg"></span>
+                            :
+
                             <button className='btn btn-sm btn-secondary rounded  block'>Submit</button>
+                          }
                
                             
                             

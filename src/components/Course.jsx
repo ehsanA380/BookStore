@@ -25,13 +25,11 @@ function Course() {
       
     }
     getBook();
-    setInterval(() => {
     if(reloadBook){
         getBook()
         setReloadBook(false)      
       }
-    }, 190);
-  },[])
+  },[reloadBook])
   return (
     <>
         <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 '>

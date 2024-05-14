@@ -57,10 +57,10 @@ function AddBook() {
     },[])
   return (
     <>
-    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+    <dialog id="my_modal_5" className="modal modal-center sm:modal-middle">
         <div className="modal-box  dark:bg-slate-900 dark:text-white">
         <div className='flex justify-between'>
-                    <h3 className="font-bold text-lg">Admin Portal</h3>
+                    <h3 className="font-bold text-lg">Add Book</h3>
                     <Link  onClick={()=>document.getElementById('my_modal_5').close()}> <img className='w-10 hover:border-[1px]  hover:p-2 rounded-full border-slate-900 transition-all duration-100  ' src="https://cdn2.iconfinder.com/data/icons/symbols-8/50/274C-cross-mark-1024.png" alt="" /> </Link>
                 </div>
                 <div>
