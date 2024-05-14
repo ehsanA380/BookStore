@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import bookRoute from './route/book.route.js'
 import userRoute from './route/user.route.js'
 import subscribeRoute from './route/subscriber.route.js'
+import contactRoute from './route/contact.route.js'
 import db from './_dbConn.js'
 
 
@@ -28,6 +29,7 @@ const MongoDbURI = 'mongodb+srv://renderAuth:HzKWNRPaVhNQytB0@ehasanbookstore.ru
 app.use("/book",bookRoute)
 app.use("/user",userRoute)
 app.use("/subscribe",subscribeRoute)
+app.use("/contact",contactRoute)
 // app.use("book",bookRoute)
 
 // console.log(process.env.PORT);

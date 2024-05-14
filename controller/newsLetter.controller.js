@@ -1,5 +1,5 @@
 import NewsLetter from "../model/NewsLetter.model.js";
-
+// api logic to save the newsletter subscriber
 export const addSubsciber =async (req,res)=>{
     const {email} = req.body
 
@@ -30,5 +30,16 @@ export const addSubsciber =async (req,res)=>{
             res.send(500).json(error)
             
         }
+    }
+}
+
+// api logic to get newsLetter subscribers details
+export const getSubscriber= async(req,res)=>{
+    try{
+        const subscribers= await NewsLetter.find();
+        res.status(200).json(subscribers)
+    }
+    catch(err){
+        res.status(500).json(err)
     }
 }
