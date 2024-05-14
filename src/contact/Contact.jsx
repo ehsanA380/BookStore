@@ -4,6 +4,7 @@ import Navbar from '../components/navbar'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
+import toast from 'react-hot-toast'
 function Contact() {
   const {
     register,
@@ -22,10 +23,13 @@ function Contact() {
       .then(res=>{
         console.log(res);
         setSpinner(false)
+        document.getElementById('contactCloser').click();
+        toast.success('You request has been submitted')
       })
     }catch(err){
       console.log(err);
       setSpinner(false)
+      toast.error('Network Error')
     }
   } 
 
@@ -40,7 +44,7 @@ function Contact() {
 
                 <div className='flex justify-between'>
                     <h3 className="font-bold text-lg">Contact Us</h3>
-                    <Link to={'/'}> <img className='w-10 hover:border-[1px]  hover:p-2 rounded-full border-slate-900 transition-all duration-100  ' src="https://cdn2.iconfinder.com/data/icons/symbols-8/50/274C-cross-mark-1024.png" alt="" /> </Link>
+                    <Link to={'/'} id='contactCloser'>  <img className='w-10 hover:border-[1px]  hover:p-2 rounded-full border-slate-900 transition-all duration-100  ' src="https://cdn2.iconfinder.com/data/icons/symbols-8/50/274C-cross-mark-1024.png" alt="" /> </Link>
                 </div>
                 <div>
                     <form className='p-4 '  onSubmit={handleSubmit(onSubmit)} >
