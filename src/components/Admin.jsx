@@ -14,7 +14,7 @@ function Admin() {
             <AddBook />
             <button onClick={() => document.getElementById('my_modal_6').showModal()} className=' w-full rounded-2xl my-5 btn btn-secondary text-xl md:w-1/3 shadow-xl shadow-pink-300  '>Newsletter Subscribers</button>
             <SubscriberDetais />
-            <button onClick={() => document.getElementById('my_modal_7').showModal()} className=' w-full rounded-2xl my-5 btn btn-secondary text-xl md:w-1/3 shadow-xl shadow-pink-300 '>whom try to contect me</button>
+            <button onClick={() => document.getElementById('my_modal_7').showModal()} className=' w-full rounded-2xl my-5 btn btn-secondary text-xl md:w-1/3 shadow-xl shadow-pink-300 '>whom try to contact me</button>
             <ContactData />
             </div>
         </div>
